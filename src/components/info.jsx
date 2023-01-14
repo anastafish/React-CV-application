@@ -17,7 +17,7 @@ function editForm(){
             <div className="form">
                 <div className="form-section">
                     <h1>First Name: {props.form.firstName}</h1>
-                    <h1>LastName: {props.form.lastName}</h1>
+                    <h1>Last Name: {props.form.lastName}</h1>
                 </div>
                 <div className='form-section'>
                     <h1>Email: {props.form.email}</h1>
