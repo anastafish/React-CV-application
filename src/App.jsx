@@ -1,32 +1,37 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
 import './App.css'
+import Form from './components/Form'
+import Info from './components/info'
+import Msg from './components/msg'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [validation,setValidation] = useState(false)
+  const[Submit, setSubmit] = useState(false)
+  const [submitMsg, setSubmitMsg] = useState(false)
+  const [form,setForm] = useState({
+    firstName:"",
+    lastName:"",
+    email:"",
+    phoneNumber:"",
+    schoolName:"",
+    studyTitle:"",
+    studyDateFrom:"",
+    studyDateTo:"",
+    companyName:"",
+    positionTitle:"",
+    mainTasks:"",
+    workingDateFrom:"",
+    workingDateTo:""        
+})
 
+const success = "Thank You For Submitting your Cv!";
+const failed = "Please Make Sure to Fill all the fields!"
   return (
     <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      {!Submit && <Form submitMsg={submitMsg} setSubmitMsg={setSubmitMsg} setValidation={setValidation} setSubmit={setSubmit} submit={Submit} form={form} setForm={setForm}/>}
+      {Submit && <Info setSubmit={setSubmit} form={form}/>}
+      {submitMsg && <Msg setValidation={setValidation} setSubmitMsg={setSubmitMsg} submit={Submit} msg={success}/>}
+      {validation && <Msg setValidation={setValidation} msg={failed}/> }
     </div>
   )
 }
