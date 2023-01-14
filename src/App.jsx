@@ -6,7 +6,7 @@ import Msg from './components/msg'
 
 function App() {
   const [validation,setValidation] = useState(false)
-  const[Submit, setSubmit] = useState(false)
+  const[Submit, setSubmit] = useState(true)
   const [submitMsg, setSubmitMsg] = useState(false)
   const [form,setForm] = useState({
     firstName:"",

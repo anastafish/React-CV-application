@@ -69,3 +69,9 @@
     border: 1px solid black;
     padding: 10px;
 }
+
+@media screen and (max-width:600px){
+    .form-section h1{
+        font-size: 15px;
+    }
+}
